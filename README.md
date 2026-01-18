@@ -1,4 +1,4 @@
-# Infinite Page Loader 
+# Infinite meme Loader 
 
 A dynamic infinite scrolling web application built with React, allowing users to seamlessly browse an endless feed of popular memes fetched from a live API.
 
