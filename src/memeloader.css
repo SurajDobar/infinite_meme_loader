@@ -5,3 +5,8 @@ body    {
 #hidden{
     display:none
 }
+
+#memeCard{
+    justify-content: space-around;
+    
+}

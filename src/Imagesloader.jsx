@@ -1,5 +1,5 @@
 import { useState,useRef,useEffect,useCallback} from 'react';
-import './index.css'
+import "./memeloader.css"
 
 const Imagesloader = () => { 
     const [images, setimages] = useState([])
@@ -17,7 +17,7 @@ const Imagesloader = () => {
         const data = await response.json()
         setimages((previmages) => [...previmages, ...data.memes])
         setLoading(false);
-        console.log(data.memes)
+
         
     }, [loading])
     
@@ -36,6 +36,8 @@ const Imagesloader = () => {
         }
     };
     
+
+
     const handleObserver = useCallback((entries) => {
         const target = entries[0];
         if (target.isIntersecting && !loading && hasStarted) {
@@ -57,22 +59,24 @@ const Imagesloader = () => {
 
     return (
         <div className='bg-gray-500' > 
-            <h1 className=' text-4xl text-white flex justify-center font-bold bg-gray-500' >INFINITE MEME LOADER</h1>
+            <h1 className=' text-2xl lg:text-4xl md:text-4xl text-white flex justify-center font-bold bg-gray-500' >INFINITE MEME LOADER</h1>
             <div className='flex justify-center'> 
-                <button onClick={handleStartLoading} className=' m-4 px-4 py-2 bg-cyan-500 rounded-full '>
+                <button onClick={handleStartLoading} className=' m-4 px-4 py-2 bg-cyan-500 rounded-full hover:cursor-pointer'>
                     {images.length === 0 ? 'Memes' : 'Load More'}
                 </button>
             </div>
-            <div className="grid lg:grid-cols-3 sm:grid-cols-2 ...">
+            <div className="grid grid-cols-2 lg:grid-cols-3 md:grid-cols-3 ...">
                 {images.map((meme, index) => (
-                    <div className="bg-gray-800 border-solid border-orange-500 border-1 " 
+                    <div id="memeCard" className="bg-gray-800 border-solid border-orange-900 border flex flex-col ;" 
                          
                          key={`${meme.postLink}-${index}`}>
-                        <div className='grid grid-cols-10 bg-gray-700 p-2 pb-2.5'>
-                            <h1 className='text-white ml-2 col-span-9'>{meme.title} </h1>
+                        <div className=' bg-gray-700 p-2 pb-2.5 ' style={{margin:"0px 0px 12px 0px"}}>
+                            <h1 className='text-white  brightness-91 ml-2 col-span-9 font-semibold font-stretch-expanded '>{meme.title} </h1>
                         </div>
                         <img src={meme.url} className="w-full h-80 object-contain " />
-                        <p className='text-white pt-2'>from: r/{meme.subreddit}</p>
+                        <div className=' font-mono pt-2 text-white flex'>
+                            from: <a href={meme.postLink} target='blank' className='text-blue-400 hover:text-purple-500 underline  decoration-3 hover:decoration-purple-500 decoration-blue-600'> r/{meme.subreddit}</a></div> 
+                            
                     </div> 
                 ))}
             </div>
