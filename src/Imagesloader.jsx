@@ -65,7 +65,7 @@ const Imagesloader = () => {
                     {images.length === 0 ? 'Memes' : 'Load More'}
                 </button>
             </div>
-            <div className="grid grid-cols-2 lg:grid-cols-3 md:grid-cols-3 ...">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 ...">
                 {images.map((meme, index) => (
                     <div id="memeCard" className="bg-gray-800 border-solid border-orange-900 border flex flex-col ;" 
                          
