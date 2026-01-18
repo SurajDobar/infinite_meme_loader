@@ -39,9 +39,9 @@ This project was built to master advanced React concepts, particularly hooks lik
 
 1. Clone the repository.
     
-2. Run `npm install`.
+2. Run `bun install`.
     
-3. Run `npm run dev`.
+3. Run `bun run dev`.
     
 
 _This project is a demonstration of my ability to build a feature-rich front-end application with React and implement advanced features like infinite scrolling._
